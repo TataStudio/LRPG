@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/LRPG/static/css/main.220f6a08.css",
+    "main.js": "/LRPG/static/js/main.50125d22.js",
+    "index.html": "/LRPG/index.html",
+    "main.220f6a08.css.map": "/LRPG/static/css/main.220f6a08.css.map",
+    "main.50125d22.js.map": "/LRPG/static/js/main.50125d22.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.220f6a08.css",
+    "static/js/main.50125d22.js"
+  ]
+}
