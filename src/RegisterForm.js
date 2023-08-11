@@ -25,7 +25,7 @@ function RegisterForm({ onRegister, onClose }) {
       await onRegister(username, email, password); 
 
       // Send an email verification request to the server after registration is successful
-      await axios.post('http://18.117.166.39:8000/send-email', {
+      await axios.post('https://18.117.166.39:8000/send-email', {
         email,
         subject: 'Email Verification',
         message: 'Please verify your email',
