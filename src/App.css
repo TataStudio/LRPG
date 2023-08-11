@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+form {
+  margin-bottom: 1em;
+}
+
+input, button {
+  margin-top: .5em;
+}
+
+.modal-header {
+  display: flex; 
+  justify-content: space-between;
+  padding: 2% 35%; /* use % instead of px */
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {
+  padding: 8% 50% 2% 0; 
+  text-align: left;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 10%; /* use % instead of px */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  display: flex;
+  place-items: center;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 2%; /* use % instead of px */
+  border: 1px solid #888;
+  width: 80%; /* use % instead of px */
+  max-width: 400px; /* use max-width to limit size on larger screens */
+  height: 80%; /* use % instead of px */
+  max-height: 500px; /* use max-height to limit size on larger screens */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation: animatetop 0.2s linear;
+}
+
+@keyframes animatetop {
+  from {transform: translate(-50%, -150%); opacity: 0}
+  to {transform: translate(-50%, -50%); opacity: 1}
+}
+
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(0, 0%, 94%);
+  padding: 2%; /* use % instead of px */
+  border-radius: 10px;
+  height: 100%; 
+  width: 100%; 
+}
+
+#registerForm input {
+  margin-bottom: 10%; /* use % instead of px */
+}
+
+#registerForm button {
+  width: 50%;
+  margin: 30px auto;  /* auto left and right margins to center the button */
+  align-self: center;
+}
+
+#registerForm label {
+  display: block;
+  margin-top: 2%; /* use % instead of px */
+  letter-spacing: 1px;
+  font-size: 1em; 
+  color: #333333;
+  text-align: left;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* full width */
+}
+
+
+.close {
+  color: white;
+  position: absolute;
+  top: 7%;           
+  right: 12%; /* use % instead of px */     
+  transform: translateY(-50%);
+  font-size: 1.5em; /* use em instead of px */
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
