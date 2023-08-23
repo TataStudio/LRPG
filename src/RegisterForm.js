@@ -25,6 +25,7 @@ function RegisterForm({ onRegister, onClose }) {
     try {
       await axios.post(`${BASE_URL}/api/auth/register`, {
         username,
+        email,
         password
     });
       console.log('Registration successful');
