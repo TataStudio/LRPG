@@ -23,10 +23,10 @@ function RegisterForm({ onRegister, onClose }) {
     }
 
     try {
-      await axios.post(`${BASE_URL}/register`, {
-          username,
-          password
-      });
+      await axios.post(`${BASE_URL}/api/auth/register`, {
+        username,
+        password
+    });
       console.log('Registration successful');
 
       // Send email verification
