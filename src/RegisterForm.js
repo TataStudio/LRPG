@@ -7,6 +7,8 @@ function RegisterForm({ onRegister, onClose }) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); 
 
+  const BASE_URL = 'https://lrpg.servegame.com';
+
   const register = async (event) => {  
     event.preventDefault();
 
@@ -15,30 +17,33 @@ function RegisterForm({ onRegister, onClose }) {
       return;
     }
 
-    if (password !== confirmPassword) {  // check if password and confirmation password are same
-        alert("Passwords do not match");
-        return;
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
     }
 
     try {
-      // Assuming onRegister returns a Promise
-      await onRegister(username, email, password); 
+      await axios.post(`${BASE_URL}/register`, {
+          username,
+          password
+      });
+      console.log('Registration successful');
 
-      // Send an email verification request to the server after registration is successful
-      await axios.post('https://18.117.166.39:8000/send-email', {
+      // Send email verification
+      await axios.post(`${BASE_URL}/send-email`, {
         email,
         subject: 'Email Verification',
         message: 'Please verify your email',
       });
 
       alert('Verification email has been sent!');
+
     } catch (err) {
       console.error('Failed to register or send verification email:', err);
     } finally {
       onClose();
     }
-};
-
+  };
 
   const validatePassword = (password) => {
     // Check if password is at least 8 characters long and contains at least 2 types of characters (letters, numbers, special characters)
