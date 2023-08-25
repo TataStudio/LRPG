@@ -6,7 +6,6 @@ import LoginForm from './LoginForm';
 import NavigationButtons from './NavigationButtons';
 import './App.css';
 
-//eslint-disable-next-line 
 const BASE_URL = 'https://lrpg.servegame.com';
 
 function App() {
