@@ -4,10 +4,33 @@ function LoginForm({ onLogin, onClose }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const login = (event) => {
+  const login = async (event) => {
     event.preventDefault();
-    onLogin(email, password);
-    onClose();
+
+    // 백엔드 API 호출
+    try {
+      const response = await fetch("/api/login", {  // API 엔드포인트를 자신의 백엔드 주소로 변경해주세요.
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // 백엔드에서 반환된 토큰 또는 사용자 정보를 저장합니다.
+        // 예: localStorage.setItem('token', data.token);
+        onLogin();  // 필요하다면 onLogin에 data나 다른 정보를 넘겨줄 수도 있습니다.
+        onClose();
+      } else {
+        // 오류 처리
+        const data = await response.json();
+        alert(data.message || "로그인 실패");
+      }
+    } catch (error) {
+      alert("로그인 중 오류 발생: " + error.message);
+    }
   };
 
   return (
