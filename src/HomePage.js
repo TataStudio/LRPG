@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 
 function HomePage({ loggedInUser, onLogout }) {
-  const navigate = useNavigate();
+  //eslint-disable-next-line const navigate = useNavigate();
 
-  const logout = () => {
-    onLogout();
-    navigate('/login');
-  };
+  // eslint-disable-next-lineconst logout = () => {
+  // eslint-disable-next-line  onLogout();
+  //  eslint-disable-next-line navigate('/login');
+  // eslint-disable-next-line };
 
   return (
     <div>

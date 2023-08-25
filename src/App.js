@@ -6,7 +6,7 @@ import LoginForm from './LoginForm';
 import NavigationButtons from './NavigationButtons';
 import './App.css';
 
-const BASE_URL = 'https://lrpg.servegame.com';
+//eslint-disable-next-line const BASE_URL = 'https://lrpg.servegame.com';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
