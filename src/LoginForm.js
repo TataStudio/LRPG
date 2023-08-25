@@ -9,7 +9,7 @@ function LoginForm({ onLogin, onClose }) {
 
     // 백엔드 API 호출
     try {
-      const response = await fetch("/api/login", {  // API 엔드포인트를 자신의 백엔드 주소로 변경해주세요.
+      const response = await fetch("https://lrpg.servegame.com/api/login", {  // API 엔드포인트를 자신의 백엔드 주소로 변경해주세요.
         method: "POST",
         headers: {
           "Content-Type": "application/json",
