@@ -14,7 +14,7 @@ function HomePage({ loggedInUser, onLogout }) {
       <h2>Home Page</h2>
       <p>Welcome to our site!</p>
       {loggedInUser && <div>
-        <p>You're logged in as {loggedInUser}</p>
+        <p>{"You're logged in as"}{loggedInUser}</p>
         <button onClick={onLogout}>Logout</button>
       </div>}
     </div>

@@ -1,6 +1,35 @@
 {
     "rules": {
-      "no-unused-vars": "off"
+      "react/react-in-jsx-scope": "off",
+      "no-unused-vars": "off",
+      "react/prop-types": "off"
+    },
+    "parser": "@babel/eslint-parser",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "requireConfigFile": false,
+      "ecmaVersion": 12,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "babelOptions": {
+        "plugins": ["@babel/plugin-syntax-jsx"]
+      }
+    },
+    "env": {
+      "jest": true,
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
     }
   }
   
