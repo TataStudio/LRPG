@@ -12,10 +12,6 @@ function NavigationButtons({ loggedInUser, handleLogout, onRegisterClick, onLogi
     navigate('/settings');
   };
 
-  const login = () => {
-    onLoginClick(); // this will open the login modal
-  };
-
   return (
     <div className="navigation-buttons-container">
       {loggedInUser ? (
@@ -26,7 +22,7 @@ function NavigationButtons({ loggedInUser, handleLogout, onRegisterClick, onLogi
         </>
       ) : (
         <>
-          <button onClick={login}>Login</button>
+          <button onClick={onLoginClick}>Login</button>
           <button onClick={onRegisterClick}>Register</button>
         </>
       )}
