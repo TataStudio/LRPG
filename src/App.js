@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 import HomePage from './HomePage';
 import LoginForm from './LoginForm';
-import NavigationButtons from './NavigationButtons';
+import NavigationButtons from './NavigationButtons'; // <-- make sure to import this
 import './App.css';
 
 const BASE_URL = 'https://lrpg.servegame.com';
@@ -16,11 +16,8 @@ function App() {
   const handleRegister = async (username, email, password) => { /* ... */ };
   const handleLogin = (email) => {
     setLoggedInUser(email);
-    console.log("Logged in as:", email);  // <-- Add this line
     setShowLoginModal(false);
-};
-
-
+  };
   const handleLogout = () => { setLoggedInUser(null); };
 
   return (
@@ -29,31 +26,18 @@ function App() {
         <h1>Welcome to RPG Life!</h1>
         <NavigationButtons 
           loggedInUser={loggedInUser} 
-          setLoggedInUser={setLoggedInUser} 
-          handleLogout={handleLogout} 
+          onLogout={handleLogout} 
           onRegisterClick={() => setShowRegisterModal(true)} 
           onLoginClick={() => setShowLoginModal(true)} 
         />
         <Routes>
           <Route path="/" element={<HomePage loggedInUser={loggedInUser} onLogout={handleLogout} />} />
-          {/* Adding new Routes here if necessary. For example: */}
-          {/* <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/settings" element={<SettingsPage />} /> */}
+          {/* ... other routes */}
         </Routes>
-        {showRegisterModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <RegisterForm onRegister={handleRegister} onClose={() => setShowRegisterModal(false)} />
-            </div>
-          </div>
-        )}
-        {showLoginModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <LoginForm onLogin={handleLogin} onClose={() => setShowLoginModal(false)} />
-            </div>
-          </div>
-        )}
+        
+        {showRegisterModal && <RegisterForm onRegister={handleRegister} onClose={() => setShowRegisterModal(false)} />}
+        
+        {showLoginModal && <LoginForm onLogin={handleLogin} onClose={() => setShowLoginModal(false)} />}
       </div>
     </Router>
   );
