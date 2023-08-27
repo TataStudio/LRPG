@@ -26,7 +26,7 @@ function App() {
 
         if (response.ok) {
             const data = await response.json();
-            setLoggedInUser(data.username); // assuming the backend returns a 'username' field.
+            setLoggedInUser(data.email); // assuming the backend returns a 'username' field.
             setShowLoginModal(false); // close the modal
         } else {
             const data = await response.json();
