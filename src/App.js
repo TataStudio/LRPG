@@ -14,28 +14,10 @@ function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleRegister = async (username, email, password) => { /* ... */ };
-  const handleLogin = async (email, password) => {
-    try {
-        const response = await fetch(`${BASE_URL}/api/auth/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            setLoggedInUser(data.email); // assuming the backend returns a 'username' field.
-            setShowLoginModal(false); // close the modal
-        } else {
-            const data = await response.json();
-            alert(data.message || "Login failed");
-        }
-    } catch (error) {
-        alert("Error logging in: " + error.message);
-    }
-};
+  const handleLogin = (email) => {
+      setLoggedInUser(email);
+      setShowLoginModal(false); // close the modal
+  };
 
   const handleLogout = () => { setLoggedInUser(null); };
 
