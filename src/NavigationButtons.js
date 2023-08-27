@@ -14,16 +14,16 @@ function NavigationButtons({ loggedInUser, handleLogout, onRegisterClick, onLogi
 
   return (
     <div className="navigation-buttons-container">
-      {loggedInUser ? (
+      {!loggedInUser ? (
+        <>
+          <button onClick={onLoginClick}>Login</button>
+          <button onClick={onRegisterClick}>Register</button>
+        </>
+      ) : (
         <>
           <button onClick={goToProfile}>Profile</button>
           <button onClick={goToSettings}>Settings</button>
           <button onClick={handleLogout}>Logout</button>
-        </>
-      ) : (
-        <>
-          <button onClick={onLoginClick}>Login</button>
-          <button onClick={onRegisterClick}>Register</button>
         </>
       )}
     </div>

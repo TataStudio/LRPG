@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 import HomePage from './HomePage';
 import LoginForm from './LoginForm';
-import NavigationButtons from './NavigationButtons'; // <-- make sure to import this
+import NavigationButtons from './NavigationButtons';
 import './App.css';
 
 const BASE_URL = 'https://lrpg.servegame.com';
@@ -32,12 +32,25 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<HomePage loggedInUser={loggedInUser} onLogout={handleLogout} />} />
-          {/* ... other routes */}
+          {/* ... other routes if necessary */}
         </Routes>
         
-        {showRegisterModal && <RegisterForm onRegister={handleRegister} onClose={() => setShowRegisterModal(false)} />}
-        
-        {showLoginModal && <LoginForm onLogin={handleLogin} onClose={() => setShowLoginModal(false)} />}
+        {/* Modals rendered as centered pop-ups */}
+        {showRegisterModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <RegisterForm onRegister={handleRegister} onClose={() => setShowRegisterModal(false)} />
+            </div>
+          </div>
+        )}
+
+        {showLoginModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <LoginForm onLogin={handleLogin} onClose={() => setShowLoginModal(false)} />
+            </div>
+          </div>
+        )}
       </div>
     </Router>
   );
