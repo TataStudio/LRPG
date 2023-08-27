@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/LRPG/static/css/main.220f6a08.css",
-    "main.js": "/LRPG/static/js/main.9511167e.js",
+    "main.js": "/LRPG/static/js/main.f9f27b7b.js",
     "index.html": "/LRPG/index.html",
     "main.220f6a08.css.map": "/LRPG/static/css/main.220f6a08.css.map",
-    "main.9511167e.js.map": "/LRPG/static/js/main.9511167e.js.map"
+    "main.f9f27b7b.js.map": "/LRPG/static/js/main.f9f27b7b.js.map"
   },
   "entrypoints": [
     "static/css/main.220f6a08.css",
-    "static/js/main.9511167e.js"
+    "static/js/main.f9f27b7b.js"
   ]
 }
