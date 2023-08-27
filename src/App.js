@@ -30,6 +30,9 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<HomePage loggedInUser={loggedInUser} onLogout={handleLogout} />} />
+          {/* Adding new Routes here if necessary. For example: */}
+          {/* <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/settings" element={<SettingsPage />} /> */}
         </Routes>
         {showRegisterModal && (
           <div className="modal">
