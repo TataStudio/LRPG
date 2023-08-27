@@ -15,9 +15,11 @@ function App() {
 
   const handleRegister = async (username, email, password) => { /* ... */ };
   const handleLogin = (email) => {
-      setLoggedInUser(email);
-      setShowLoginModal(false); // close the modal
-  };
+    setLoggedInUser(email);
+    console.log("Logged in as:", email);  // <-- Add this line
+    setShowLoginModal(false);
+};
+
 
   const handleLogout = () => { setLoggedInUser(null); };
 

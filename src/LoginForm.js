@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 function LoginForm({ onLogin, onClose }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,6 +23,7 @@ function LoginForm({ onLogin, onClose }) {
         const data = await response.json();
         onLogin(data.email); // or any other necessary user info
         onClose();
+        navigate('/');
       } else {
         const data = await response.json();
         alert(data.message || "Login failed");
