@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function NavigationButtons({ loggedInUser, handleLogout, onRegisterClick, onLoginClick }) {
+function NavigationButtons({ loggedInUser, onLogout: handleLogout, onRegisterClick, onLoginClick }) {
   const navigate = useNavigate();
 
   const goToProfile = () => {
