@@ -21,7 +21,7 @@ function LoginForm({ onLogin, onClose }) {
 
       if (response.ok) {
         const data = await response.json();
-        onLogin(data.email); // or any other necessary user info
+        onLogin(data.username); // or any other necessary user info
         onClose();
         navigate('/');
       } else {

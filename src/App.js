@@ -14,8 +14,8 @@ function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleRegister = async (username, email, password) => { /* ... */ };
-  const handleLogin = (email) => {
-    setLoggedInUser(email);
+  const handleLogin = (username) => {
+    setLoggedInUser(username);
     setShowLoginModal(false);
   };
   const handleLogout = () => { setLoggedInUser(null); };
