@@ -23,7 +23,7 @@ function App() {
   return (
     <Router>
       <div>
-        <h1>Welcome to RPG Life!</h1>
+        {!loggedInUser && <h1>Welcome to RPG Life!</h1>}
         <NavigationButtons 
           loggedInUser={loggedInUser} 
           onLogout={handleLogout} 
