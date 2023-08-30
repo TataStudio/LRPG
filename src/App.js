@@ -13,6 +13,10 @@ function App() {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
+  const isProduction = process.env.NODE_ENV === 'production';
+  // Use /LRPG as basename in production, otherwise use default
+  const baseName = isProduction ? '/LRPG' : '/';
+
   const handleRegister = async (username, email, password) => { /* ... */ };
   const handleLogin = (username) => {
     setLoggedInUser(username);
@@ -21,7 +25,7 @@ function App() {
   const handleLogout = () => { setLoggedInUser(null); };
 
   return (
-    <Router basename="/LRPG">
+    <Router basename={baseName}>
       <div>
         {!loggedInUser && <h1>Welcome to RPG Life!</h1>}
         <NavigationButtons 
