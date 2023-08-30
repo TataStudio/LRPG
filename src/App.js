@@ -4,7 +4,9 @@ import RegisterForm from './RegisterForm';
 import HomePage from './HomePage';
 import LoginForm from './LoginForm';
 import NavigationButtons from './NavigationButtons';
+import logo from './assets/LRPG-logo-white.png';
 import './App.css';
+
 
 const BASE_URL = 'https://lrpg.servegame.com';
 
@@ -26,19 +28,28 @@ function App() {
 
   return (
     <Router basename={baseName}>
+
+      <div className="container">
+        <header>
+          <img src={logo} alt="LRPG Logo" className="logo" /> {/* Using the imported logo */}
+          {/* ... rest of your header/navigation content ... */}
+        </header>
+        {/* ... rest of your App content ... */}
+      </div>
+      
       <div>
         {!loggedInUser && <h1>Welcome to RPG Life!</h1>}
-        <NavigationButtons 
-          loggedInUser={loggedInUser} 
-          onLogout={handleLogout} 
-          onRegisterClick={() => setShowRegisterModal(true)} 
-          onLoginClick={() => setShowLoginModal(true)} 
+        <NavigationButtons
+          loggedInUser={loggedInUser}
+          onLogout={handleLogout}
+          onRegisterClick={() => setShowRegisterModal(true)}
+          onLoginClick={() => setShowLoginModal(true)}
         />
         <Routes>
           <Route path="/" element={<HomePage loggedInUser={loggedInUser} onLogout={handleLogout} />} />
           {/* ... other routes if necessary */}
         </Routes>
-        
+
         {/* Modals rendered as centered pop-ups */}
         {showRegisterModal && (
           <div className="modal">
