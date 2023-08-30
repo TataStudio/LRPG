@@ -21,7 +21,7 @@ function App() {
   const handleLogout = () => { setLoggedInUser(null); };
 
   return (
-    <Router>
+    <Router basename="/LRPG">
       <div>
         {!loggedInUser && <h1>Welcome to RPG Life!</h1>}
         <NavigationButtons 
