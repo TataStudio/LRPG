@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
-function LoginForm({ onLogin, onClose }) {
+function LoginForm({ onLogin }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +21,6 @@ function LoginForm({ onLogin, onClose }) {
       if (response.ok) {
         const data = await response.json();
         onLogin(data.username); // or any other necessary user info
-        onClose();
         navigate('/');
       } else {
         const data = await response.json();
@@ -31,14 +29,12 @@ function LoginForm({ onLogin, onClose }) {
     } catch (error) {
       alert("Error logging in: " + error.message);
     }
-};
-
+  };
 
   return (
     <form id="loginForm" onSubmit={login}>
       <div className="modal-header">
         <h2>Login</h2>
-        <span className="close" onClick={onClose}>×</span>
       </div>
       <div className="modal-body">
         <label>Email</label>

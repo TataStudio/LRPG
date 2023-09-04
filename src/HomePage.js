@@ -1,13 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-
-function HomePage({ loggedInUser, onLogout }) {
-  console.log("Rendering HomePage with loggedInUser:", loggedInUser);  
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    onLogout();
-    navigate('/login');
-  };
+function HomePage({ loggedInUser }) {
+  console.log("Rendering HomePage with loggedInUser:", loggedInUser);
 
   if (loggedInUser) {
     return (
