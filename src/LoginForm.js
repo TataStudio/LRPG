@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Modal, Form, Button } from 'react-bootstrap';
 
-function LoginForm({ onLogin }) {
+function LoginForm({ showLoginModal, onLogin, onClose }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +22,7 @@ function LoginForm({ onLogin }) {
       if (response.ok) {
         const data = await response.json();
         onLogin(data.username); // or any other necessary user info
+        onClose();
         navigate('/');
       } else {
         const data = await response.json();
@@ -32,18 +34,38 @@ function LoginForm({ onLogin }) {
   };
 
   return (
-    <form id="loginForm" onSubmit={login}>
-      <div className="modal-header">
-        <h2>Login</h2>
-      </div>
-      <div className="modal-body">
-        <label>Email</label>
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
-        <label>Password</label>
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
-        <button type="submit">Login</button>
-      </div>
-    </form>
+    <Modal show={showLoginModal} onHide={onClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Login</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form>
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <div className="mt-3">
+            <Button variant="primary" type="submit" onClick={login}>
+              Login
+            </Button>
+          </div>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 }
 
