@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/LRPG/static/css/main.eefc237f.css",
-    "main.js": "/LRPG/static/js/main.0554859b.js",
+    "main.js": "/LRPG/static/js/main.921faaf6.js",
     "static/media/LRPG-logo-white.png": "/LRPG/static/media/LRPG-logo-white.0d955d51c2cabeb02c30.png",
     "index.html": "/LRPG/index.html",
     "main.eefc237f.css.map": "/LRPG/static/css/main.eefc237f.css.map",
-    "main.0554859b.js.map": "/LRPG/static/js/main.0554859b.js.map"
+    "main.921faaf6.js.map": "/LRPG/static/js/main.921faaf6.js.map"
   },
   "entrypoints": [
     "static/css/main.eefc237f.css",
-    "static/js/main.0554859b.js"
+    "static/js/main.921faaf6.js"
   ]
 }
