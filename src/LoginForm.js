@@ -23,7 +23,7 @@ function LoginForm({ showLoginModal, onLogin, onClose }) {
         const data = await response.json();
         onLogin(data.username); // or any other necessary user info
         onClose();
-        navigate('/');
+        navigate('/login');
       } else {
         const data = await response.json();
         alert(data.message || "Login failed");
